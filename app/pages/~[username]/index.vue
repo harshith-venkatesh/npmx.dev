@@ -154,12 +154,12 @@ watch(username, () => {
 })
 
 useSeoMeta({
-  title: () => `@${username.value} - npmx`,
+  title: () => `~${username.value} - npmx`,
   description: () => `npm packages maintained by ${username.value}`,
 })
 
 defineOgImageComponent('Default', {
-  title: () => `@${username.value}`,
+  title: () => `~${username.value}`,
   description: () => (results.value ? `${results.value.total} packages` : 'npm user profile'),
 })
 </script>
@@ -179,7 +179,7 @@ defineOgImageComponent('Default', {
           }}</span>
         </div>
         <div>
-          <h1 class="font-mono text-2xl sm:text-3xl font-medium">@{{ username }}</h1>
+          <h1 class="font-mono text-2xl sm:text-3xl font-medium">~{{ username }}</h1>
           <p v-if="results?.total" class="text-fg-muted text-sm mt-1">
             {{ $t('org.public_packages', { count: formatNumber(results.total) }, results.total) }}
           </p>
@@ -217,7 +217,7 @@ defineOgImageComponent('Default', {
     <!-- Empty state -->
     <div v-else-if="results && results.total === 0" class="py-12 text-center">
       <p class="text-fg-muted font-mono">
-        {{ $t('user.page.no_packages') }} <span class="text-fg">@{{ username }}</span>
+        {{ $t('user.page.no_packages') }} <span class="text-fg">~{{ username }}</span>
       </p>
       <p class="text-fg-subtle text-sm mt-2">{{ $t('user.page.no_packages_hint') }}</p>
     </div>
